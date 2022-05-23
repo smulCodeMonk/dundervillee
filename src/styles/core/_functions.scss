@@ -1,0 +1,11 @@
+@function rem($px, $base: $base-font-size) {
+    @return ($px / $base) * 1rem;
+}
+
+@function aspectRatio($width, $height) {
+    @return ($height / $width * 100%);
+}
+
+@function returnPxValue($value) {
+    @return $value * 1px;
+}

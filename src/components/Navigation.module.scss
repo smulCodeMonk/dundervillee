@@ -1,0 +1,50 @@
+@import 'styles/partials/lists';
+@import 'styles/partials/buttons';
+.list {
+    @extend .list--horizontal;
+
+    position: absolute;
+    right: rem(95px);
+}
+
+.item {
+    @extend .list__item;
+
+    padding: rem(24px) 0;
+
+    font-size: rem(11px);
+
+    text-transform: uppercase;
+    &:not(:last-child) {
+        margin-right: rem(57px);
+    }
+}
+.active {
+    position: relative;
+
+    text-decoration: line-through;
+
+    text-decoration-thickness: rem(2px);
+}
+
+.is_wide {
+    display: none;
+}
+
+// .at_home {
+//     position: relative;
+//     right: 0;
+
+//     width: fit-content;
+//     // display: none;
+
+//     margin: 0 auto;
+// }
+@include mq-wide {
+    .is_narrow {
+        display: none;
+    }
+    .is_wide {
+        display: block;
+    }
+}

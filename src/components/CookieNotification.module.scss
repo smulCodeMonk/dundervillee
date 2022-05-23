@@ -1,0 +1,25 @@
+@import 'styles/partials/lists';
+
+.container {
+    position: fixed;
+    bottom: 0;
+
+    width: 100%;
+
+    padding: rem(10px);
+    // background-color: $color-shcc-red;
+
+    text-align: center;
+}
+
+.list {
+    @extend .list--horizontal;
+}
+
+.item {
+    @extend .list__item;
+
+    &:not(:last-child) {
+        margin-right: rem(10px);
+    }
+}

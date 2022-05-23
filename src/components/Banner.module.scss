@@ -1,0 +1,30 @@
+.container {
+    // border: 1px solid red;
+    margin: 0 rem(35px) rem(40px) rem(35px);
+    padding: 0 rem(40px);
+}
+
+.wrapper {
+    position: relative;
+
+    width: 100%;
+}
+
+.svgBanner {
+    width: 100%;
+    height: 100%;
+}
+
+.letters {
+    fill: $color-dark-charcoal;
+}
+
+.customLetterE {
+    stroke: $color-dark-charcoal;
+}
+
+@include mq-wide {
+    .container {
+        padding: 0 rem(56px);
+    }
+}

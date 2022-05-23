@@ -1,0 +1,63 @@
+.menu__button {
+    position: relative;
+
+    width: rem(88px);
+    height: rem(80px);
+    //TODO change !important
+
+    margin: 0 0 0 auto !important;
+    &::before {
+        position: absolute;
+        top: rem(4px);
+        left: rem(4px);
+
+        width: 100%;
+        height: 100%;
+
+        background-color: $color-black;
+
+        content: '';
+    }
+}
+
+.menu__button_container {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: $color-charleston-green;
+}
+.menu__icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    svg {
+        position: absolute;
+
+        width: rem(32px);
+        height: rem(32px);
+
+        margin: auto;
+
+        inset: 0;
+        fill: #ffffff;
+    }
+}
+
+.is_wide {
+    display: none;
+}
+
+@include mq-wide {
+    .is_narrow {
+        display: none;
+    }
+    .is_wide {
+        display: block;
+    }
+}

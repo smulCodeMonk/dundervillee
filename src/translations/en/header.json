@@ -1,0 +1,32 @@
+{
+    "navigation": [
+        {
+            "button": {
+                "copy": "Studio",
+                "href": "/studio"
+            }
+        },
+        {
+            "button": {
+                "copy": "The work",
+                "href": "/the-work"
+            }
+        },
+        {
+            "button": {
+                "copy": "Process",
+                "href": "/process"
+            }
+        },
+        {
+            "button": {
+                "copy": "Contact",
+                "href": "/contact"
+            }
+        }
+    ],
+
+    "header-title": "the chronicles of dunderville, sweden",
+    "header-title-big": "the chronicles of a creative studio",
+    "header-title-home": "Based in Malmö, Sweden"
+}

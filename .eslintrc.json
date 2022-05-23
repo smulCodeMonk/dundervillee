@@ -1,0 +1,18 @@
+{
+    "env": {
+        "jest": true
+    },
+    "parser": "babel-eslint",
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "@superherocheesecake/eslint-config",
+        "prettier"
+    ],
+    "rules": {
+        "react/prop-types": "off"
+    }, 
+    "globals": {
+        "process": true
+    }
+}

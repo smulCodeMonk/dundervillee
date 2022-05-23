@@ -1,0 +1,16 @@
+// :global(.is_wide) {
+//     display: none;
+// }
+
+// .at_home {
+//     display: none;
+// }
+
+// @include mq-wide {
+//     .is_narrow {
+//         display: none;
+//     }
+//     .is_wide {
+//         display: block;
+//     }
+// }

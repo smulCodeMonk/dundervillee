@@ -1,0 +1,28 @@
+{
+    "navigation": [
+        {
+            "button": {
+                "copy": "Studio",
+                "href": "/studio"
+            }
+        },
+        {
+            "button": {
+                "copy": "The work",
+                "href": "/the-work"
+            }
+        },
+        {
+            "button": {
+                "copy": "Process",
+                "href": "/process"
+            }
+        },
+        {
+            "button": {
+                "copy": "Contact",
+                "href": "/contact"
+            }
+        }
+    ]
+}

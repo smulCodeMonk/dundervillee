@@ -1,0 +1,35 @@
+.container {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+}
+
+// .canvas {
+// }
+
+.percentage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    font-size: rem(20px);
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    line-height: rem(20px);
+}
+
+.wrapper {
+    position: absolute;
+
+    width: rem(400px);
+    height: rem(400px);
+
+    margin: auto;
+
+    inset: 0;
+}

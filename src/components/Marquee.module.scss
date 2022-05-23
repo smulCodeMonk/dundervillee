@@ -1,0 +1,36 @@
+.marquee {
+    position: relative;
+
+    margin: 0;
+    padding: rem(125px) 0;
+}
+
+.line {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    height: 100%;
+
+    text-align: left;
+    white-space: nowrap;
+}
+
+.label {
+    position: relative;
+    display: inline-block;
+
+    pointer-events: none;
+
+    font-size: rem(94px);
+    line-height: 1em;
+    // color: $color-orange;
+
+    color: $color-dark-charcoal;
+}
+
+@include mq-regular {
+    .label {
+        font-size: rem(180px);
+    }
+}

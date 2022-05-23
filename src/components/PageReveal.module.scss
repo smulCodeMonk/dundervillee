@@ -1,0 +1,26 @@
+.pageReveal {
+    position: fixed;
+    z-index: 3;
+    // display: none;
+
+    width: 100%;
+    min-height: 100vh;
+    overflow-y: hidden;
+    // background-color: rgba(255, 0, 0, 0.561);
+
+    background-color: $color-dark-charcoal;
+
+    transform: translateY(-200%);
+
+    inset: 0;
+}
+
+.test {
+    display: grid;
+
+    font-size: rem(130px);
+
+    color: white;
+
+    place-items: center;
+}

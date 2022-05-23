@@ -1,0 +1,9 @@
+{
+    "meta__title": "Form",
+    "heading": "Form With Validation",
+
+    "form__name": "Name",
+    "form__email": "Email",
+    "form__phone": "Phone",
+    "form__message": "Message"
+}
