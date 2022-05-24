@@ -30,9 +30,9 @@ import Spritesheet from 'components/Spritesheet';
 
 import CustomCursor from 'components/CustomCursor';
 
-import CanvasCustomCursor from 'components/CanvasCustomCursor';
-
 import { isFunction } from 'lodash';
+import { resizeManager } from '@superherocheesecake/next-resize-manager';
+import { isMediaQueryWide } from 'utils/DeviceUtil';
 
 export function reportWebVitals(props) {
     report(props);
@@ -43,7 +43,8 @@ class Application extends React.Component {
         overlayNavigationVisible: false,
         isNarrow: null,
         isPreloaderCompleted: false,
-        onHover: false
+        onHover: false,
+        isSpritesheetMotionCompleted: false
     };
 
     componentDidMount() {
@@ -52,8 +53,8 @@ class Application extends React.Component {
 
     render() {
         const { Component, t, pageProps, router } = this.props;
-        const { isPreloaderCompleted } = this.state;
-        const { onHover } = this.state;
+        // const { isPreloaderCompleted } = this.state;
+        const { onHover, isNarrow, isPreloaderCompleted, overlayNavigationVisible, isSpritesheetMotionCompleted } = this.state;
 
         return (
             <>
@@ -63,13 +64,6 @@ class Application extends React.Component {
                 </Head>
 
                 <SafariCacheFix />
-                {/* 
-                {isPreloaderCompleted && (
-                    <>
-                    <Header t={t} router={router} overlayNavigationVisible={this.state.overlayNavigationVisible} handleButtonHamburgerClick={this._handleButtonHamburgerClick}></Header>
-                    <Footer t={t}></Footer>
-                    </>
-                )} */}
 
                 <Transition fragment={router.pathname}>
                     {isPreloaderCompleted && (
@@ -80,13 +74,21 @@ class Application extends React.Component {
                                 overlayNavigationVisible={this.state.overlayNavigationVisible}
                                 handleButtonHamburgerClick={this._handleButtonHamburgerClick}
                                 onHover={onHover}
+                                isNarrow={isNarrow}
                                 // handleOnHover={this._handleOnHover}
                                 handleMouseenter={this._handleMouseenter}
                                 handleMouseleave={this._handleMouseleave}
                                 handleMouseDown={this._handleMouseDown}
                             ></Header>
 
-                            <Component handleMouseenter={this._handleMouseenter} handleMouseleave={this._handleMouseleave} handleMouseDown={this._handleMouseDown} {...pageProps} />
+                            <Component
+                                isSpritesheetMotionCompleted={isSpritesheetMotionCompleted}
+                                handleSpritesheetMotionCompleted={this._handleSpritesheetMotionCompleted}
+                                handleMouseenter={this._handleMouseenter}
+                                handleMouseleave={this._handleMouseleave}
+                                handleMouseDown={this._handleMouseDown}
+                                {...pageProps}
+                            />
 
                             <Footer handleMouseenter={this._handleMouseenter} handleMouseleave={this._handleMouseleave} t={t}></Footer>
                         </>
@@ -95,13 +97,12 @@ class Application extends React.Component {
 
                 {/* <PageReveal></PageReveal> */}
                 {/* {this.state.overlayNavigationVisible && */}
-                {/* <OverlayMenu overlayNavigationVisible={this.state.overlayNavigationVisible} t={t} /> */}
+                {/* {isPreloaderCompleted && <OverlayMenu overlayNavigationVisible={overlayNavigationVisible} t={t} />} */}
                 {/*   } */}
 
                 {!isPreloaderCompleted && <Preloader onPreloaderCompleted={this._handlePreloaderCompleted} />}
 
                 <CustomCursor onHover={onHover} />
-                {/* <CanvasCustomCursor /> */}
             </>
         );
     }
@@ -129,15 +130,16 @@ class Application extends React.Component {
             this.setState({ onHover: false });
         }
     };
-    // _handleOnHover = (onHover) => {
-    //     console.log(onHover);
-    //     this.setState({ onHover: onHover });
-    // };
 
     _handleMouseDown = (e) => {
         if (e.type === 'mousedown') {
             this.setState({ onHover: false });
         }
+    };
+
+    _handleSpritesheetMotionCompleted = (index) => {
+        console.log(index);
+        this.setState({ isSpritesheetMotionCompleted: true });
     };
 }
 

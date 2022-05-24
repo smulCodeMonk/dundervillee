@@ -2,7 +2,7 @@
     position: relative;
 
     margin: 0;
-    padding: rem(125px) 0;
+    // padding: rem(125px) 0;
 }
 
 .line {
@@ -21,16 +21,16 @@
     display: inline-block;
 
     pointer-events: none;
+    // font-size: rem(94px);
 
-    font-size: rem(94px);
     line-height: 1em;
     // color: $color-orange;
 
     color: $color-dark-charcoal;
 }
 
-@include mq-regular {
-    .label {
-        font-size: rem(180px);
-    }
-}
+// @include mq-regular {
+//     .label {
+//         font-size: rem(180px);
+//     }
+// }

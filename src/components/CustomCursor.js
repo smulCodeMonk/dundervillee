@@ -33,7 +33,8 @@ export default class CustomCursor extends Component {
 
     outerRing = {
         radiusWidth: 0.005,
-        numberLines: 6
+        numberLines: 6,
+        lineWidth: 2
     };
 
     componentDidMount() {
@@ -83,7 +84,7 @@ export default class CustomCursor extends Component {
 
     _resize() {
         this._setSize();
-        this._draw();
+        // this._draw();
     }
 
     _setSize() {
@@ -112,49 +113,44 @@ export default class CustomCursor extends Component {
     _drawOuterCircle() {
         const { radius, lastX, lastY, fillStyle, startAngle, endAngle } = this.outerCircle;
 
-        this.outerCircle.lastX = this._lerp(this.outerCircle.lastX, this.mouseX, 0.1);
-        this.outerCircle.lastY = this._lerp(this.outerCircle.lastY, this.mouseY, 0.1);
-
+        this.outerCircle.lastX = this._lerp(this.outerCircle.lastX, this.mouseX, 0.2);
+        this.outerCircle.lastY = this._lerp(this.outerCircle.lastY, this.mouseY, 0.2);
         this._context.beginPath();
 
         for (let i = 0; i < 10; i++) {
-            this._context.arc(
-                this._lerp(lastX, this.mouseX, `0.${i}`),
+            // this._context.arc(
+            //     this._lerp(lastX, this.mouseX, `0.${i}`),
 
-                this._lerp(lastY, this.mouseY, `0.${i}`),
-                radius - i,
-                0,
-                endAngle
-            );
+            //     this._lerp(lastY, this.mouseY, `0.${i}`),
+            //     radius - i,
+            //     0,
+            //     endAngle
+            // );
+            // this._context.fillStyle = fillStyle;
+            // this._context.fill();
 
             if (i % 2 === 0) {
                 this._context.fillStyle = fillStyle;
+                this._context.fill();
 
-                // this._context.arc(
-                //     this._lerp(lastX, this.mouseX, `0.${i}`),
+                this._context.arc(
+                    this._lerp(lastX, this.mouseX, `0.${i}`),
 
-                //     this._lerp(lastY, this.mouseY, `0.${i}`),
-                //     radius + i,
-                //     0,
-                //     endAngle
-                // );
-                // this._context.fillStyle = fillStyle;
-                // this._context.fill();
+                    this._lerp(lastY, this.mouseY, `0.${i}`),
+                    radius - i,
+                    0,
+                    endAngle
+                );
+                // this._context.strokeStyle = 'red';
+                // this._context.stroke();
                 // this._context.closePath();
             } else {
-                // this._context.arc(
-                //     this._lerp(lastX, this.mouseX, `0.${i}`),
-
-                //     this._lerp(lastY, this.mouseY, `0.${i}`),
-                //     radius + i,
-                //     0,
-                //     endAngle
-                // );
-                this._context.fillStyle = 'black';
+                this._context.arc(this._lerp(lastX, this.mouseX, `-0.${i}`), this._lerp(lastY, this.mouseY, `-0.${i}`), radius + i, 0, endAngle);
+                // this._context.fillStyle = 'black';
+                // this._context.fill();
                 // this._context.fill();
                 // this._context.closePath();
             }
-            this._context.fill();
             this._context.closePath();
         }
         // this._context.closePath();
@@ -179,7 +175,7 @@ export default class CustomCursor extends Component {
     };
 
     _drawOuterRing = () => {
-        const { radiusWidth, numberLines } = this.outerRing;
+        const { radiusWidth, numberLines, lineWidth } = this.outerRing;
 
         const cx = this.mouseX;
         const cy = this.mouseY;
@@ -214,7 +210,7 @@ export default class CustomCursor extends Component {
             this._context.translate(cx, cy);
             this._context.rotate(-angle);
 
-            this._context.lineWidth = 2;
+            this._context.lineWidth = lineWidth;
 
             this._context.beginPath();
             this._context.arc(0, 0, radius, slice * -0.09, slice * 0.09);
@@ -239,14 +235,14 @@ export default class CustomCursor extends Component {
         this._tlRevealCursor.fromTo(this.wrapper.current, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.2, ease: 'power3.inOut' }, 0);
 
         const { radius, lastX, lastY, fillStyle, startAngle, endAngle } = this.outerCircle;
-        const { radiusWidth } = this.outerRing;
+        const { radiusWidth, numberLines } = this.outerRing;
 
         this._tlCircle = gsap.timeline({ paused: true });
         this._tlCircle
             .to(
                 this.outerCircle,
                 {
-                    radius: radius * 1.5,
+                    radius: radius * 1.6,
                     fillStyle: '#fff5',
 
                     ease: 'Power3.InOut',
@@ -264,8 +260,8 @@ export default class CustomCursor extends Component {
                 },
                 0
             )
-            // .fromTo(this.outerRing, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.35, ease: 'sine.inOut' }, 0)
-            .to(this.outerRing, { radiusWidth: 0.02, duration: 0.35, ease: 'power3.inOut' }, 0);
+            .to(this.outerRing, { radiusWidth: radiusWidth * 4, duration: 0.25, ease: 'power3.inOut' }, 0)
+            .fromTo(this.outerRing, { numberLines: 6 }, { numberLines: 60, lineWidth: 20, duration: 0.45, ease: 'power3.inOut' }, 0.25);
     }
 
     _handleMousemove = (e) => {

@@ -1,4 +1,17 @@
 .container {
+    // position: fixed;
+    // z-index: 5;
+    width: 100%;
+    height: 100%;
+
+    margin: 0 auto;
+    // padding: rem(20px);
+    // border: 1px solid red;
+
+    // background-color: $color-chinese-white;
+}
+
+.canvas {
     width: 100%;
     height: 100%;
 }

@@ -10,6 +10,8 @@ import Spritesheet from 'components/Spritesheet';
 
 import CanvasHouse from 'components/CanvasHouse';
 
+import Faq from 'components/Faq';
+
 class Home extends Component {
     el = createRef();
 
@@ -26,7 +28,7 @@ class Home extends Component {
         this._removeEventListener();
     }
     render() {
-        const { t, handleMouseenter, handleMouseleave, handleMouseDown } = this.props;
+        const { t, handleMouseenter, handleMouseleave, handleMouseDown, handleSpritesheetMotionCompleted, isSpritesheetMotionCompleted } = this.props;
         // console.log(handleMouseenter, handleMouseleave);
         return (
             <div ref={this.el} className={styles.page}>
@@ -34,20 +36,13 @@ class Home extends Component {
                     <title>{t('home:meta__title')}</title>
                 </Head>
                 <Banner></Banner>
-                <Marquee />
+                {/* <Marquee /> */}
                 <div className={styles.homeNavigation}>
                     <Navigation t={t} handleMouseDown={handleMouseDown} handleMouseenter={handleMouseenter} handleMouseleave={handleMouseleave}></Navigation>
                 </div>
-                <Spritesheet />
-                <CanvasHouse />
-
-                {/* <h1>{t('home:heading')}</h1> */}
-                {/* 
-                <Button className={styles.cta} onClick={this._handleCtaClick}>{t('home:cta')}</Button>
-                <Button href="www.google.com" target="_blank">
-                    {t('home:external-link')}
-                </Button>
-                <Button href="/form">{t('home:internal-link')}</Button> */}
+                {!isSpritesheetMotionCompleted && <Spritesheet handleSpritesheetMotionCompleted={handleSpritesheetMotionCompleted} />}
+                {/* <CanvasHouse /> */}
+                <Faq />
             </div>
         );
     }

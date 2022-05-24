@@ -38,7 +38,7 @@ export default class Preloader extends Component {
         this._removeEventListeners();
         this._killTimelines();
 
-        // this._removeQueue();
+        this._removeQueue();
     }
 
     render() {

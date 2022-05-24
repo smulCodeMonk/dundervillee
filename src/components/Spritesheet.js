@@ -4,6 +4,8 @@ import { loader } from '@superherocheesecake/loader';
 
 import styles from './Spritesheet.module.scss';
 
+import { isFunction } from 'lodash';
+
 const FRAMES_ORDER = [
     4,
     5,
@@ -192,6 +194,9 @@ export default class Spritesheet extends Component {
         let index = this.state.index;
         index += 1;
         this.setState({ index });
+
+        //removes spritesheet when done
+        this._CompletedMotion(index);
     }
 
     _getFrameData() {
@@ -210,5 +215,13 @@ export default class Spritesheet extends Component {
 
     _handleTick = () => {
         this._tick();
+    };
+
+    _CompletedMotion = (index) => {
+        const { handleSpritesheetMotionCompleted } = this.props;
+
+        if (isFunction(handleSpritesheetMotionCompleted) && index === 57) {
+            handleSpritesheetMotionCompleted(index);
+        }
     };
 }

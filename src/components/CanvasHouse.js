@@ -33,18 +33,16 @@ export default class CanvasHouse extends Component {
     _setupEventListeners() {
         // just a function that runs 60fps
         // gsap.ticker.add(this._handleTick);
-
         // listening to our resize events
-        resizeManager.addEventListener('resize', this._resizeHandler);
-        resizeManager.addEventListener('resize:complete', this._resizeHandler);
+        // resizeManager.addEventListener('resize', this._resizeHandler);
+        // resizeManager.addEventListener('resize:complete', this._resizeHandler);
     }
 
     _removeEventListeners() {
         // get rid of the events
         // gsap.ticker.remove(this._handleTick);
-
-        resizeManager.removeEventListener('resize', this._resizeHandler);
-        resizeManager.removeEventListener('resize:complete', this._resizeHandler);
+        // resizeManager.removeEventListener('resize', this._resizeHandler);
+        // resizeManager.removeEventListener('resize:complete', this._resizeHandler);
     }
 
     _resize() {

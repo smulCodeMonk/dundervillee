@@ -108,6 +108,7 @@ export default class Marquee extends Component {
     }
 
     _setupEventListeners() {
+        console.log(this.ui.marquee);
         if (this.ui.marquee) {
             resizeManager.addEventListener('resize', this._resizeHandler);
             resizeManager.addEventListener('resize:complete', this._resizeHandler);

@@ -26,7 +26,7 @@ export default class Header extends Component {
                 <div className={`${styles.border_right} ${styles.is_wide}`}></div>
 
                 <div className={styles.logo}>
-                    <img src="/" alt="Dunderville-logo-feather" className={`${styles.logo_img} ${styles.is_narrow}`} />
+                    <img src="/assets/img/logo.svg" alt="Dunderville-logo-feather" className={`${styles.logo_img} ${styles.is_narrow}`} />
                 </div>
 
                 <div className={`${styles.logo_wide} ${styles.logo} ${styles.is_wide}`}>
@@ -60,7 +60,7 @@ export default class Header extends Component {
         // const header = document.querySelector(`.${styles.header}`);
         // const list = document.querySelector(`.${styles.list}`);
         // console.log(window.innerWidth)
-
+        console.log('red');
         if (isMediaQueryNarrow() || isMediaQueryRegular()) {
             this.setState({ isNarrow: true });
         } else {

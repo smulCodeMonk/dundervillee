@@ -1,7 +1,6 @@
 import React, { Component, createRef } from 'react';
 import styles from './CanvasCustomCursor.module.scss';
 import gsap from 'gsap';
-import { resizeManager } from '@superherocheesecake/next-resize-manager';
 
 // create a custom cursor inside the canvas
 export default class CanvasCustomCursor extends Component {
@@ -36,16 +35,10 @@ export default class CanvasCustomCursor extends Component {
     _setupEventListeners() {
         gsap.ticker.add(this._handleTick);
 
-        resizeManager.addEventListener('resize', this._resizeHandler);
-        resizeManager.addEventListener('resize:complete', this._resizeHandler);
-
         window.addEventListener('mousemove', this._handleMouseMove);
     }
 
     _removeEventListeners() {
-        resizeManager.removeEventListener('resize', this._resizeHandler);
-        resizeManager.removeEventListener('resize:complete', this._resizeHandler);
-
         window.removeEventListener('mousemove', this._handleMouseMove);
         gsap.ticker.remove(this._handleTick);
     }
@@ -111,10 +104,6 @@ export default class CanvasCustomCursor extends Component {
 
     _handleMouseMove = (e) => {
         this._setMousePosition(e);
-    };
-
-    _resizeHandler = () => {
-        this._resize();
     };
 
     _handleTick = () => {
