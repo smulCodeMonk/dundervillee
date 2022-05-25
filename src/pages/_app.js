@@ -32,7 +32,7 @@ import CustomCursor from 'components/CustomCursor';
 
 import { isFunction } from 'lodash';
 import { resizeManager } from '@superherocheesecake/next-resize-manager';
-import { isMediaQueryWide } from 'utils/DeviceUtil';
+import { isMediaQueryNarrow, isMediaQueryRegular } from 'utils/DeviceUtil';
 
 export function reportWebVitals(props) {
     report(props);
@@ -53,7 +53,6 @@ class Application extends React.Component {
 
     render() {
         const { Component, t, pageProps, router } = this.props;
-        // const { isPreloaderCompleted } = this.state;
         const { onHover, isNarrow, isPreloaderCompleted, overlayNavigationVisible, isSpritesheetMotionCompleted } = this.state;
 
         return (
@@ -75,18 +74,14 @@ class Application extends React.Component {
                                 handleButtonHamburgerClick={this._handleButtonHamburgerClick}
                                 onHover={onHover}
                                 isNarrow={isNarrow}
-                                // handleOnHover={this._handleOnHover}
-                                handleMouseenter={this._handleMouseenter}
-                                handleMouseleave={this._handleMouseleave}
-                                handleMouseDown={this._handleMouseDown}
+                                handleNavigationHover={this._handleNavigationHover}
+                                handleMediaQuery={this._handleMediaQuery}
                             ></Header>
 
                             <Component
                                 isSpritesheetMotionCompleted={isSpritesheetMotionCompleted}
                                 handleSpritesheetMotionCompleted={this._handleSpritesheetMotionCompleted}
-                                handleMouseenter={this._handleMouseenter}
-                                handleMouseleave={this._handleMouseleave}
-                                handleMouseDown={this._handleMouseDown}
+                                handleNavigationHover={this._handleNavigationHover}
                                 {...pageProps}
                             />
 
@@ -96,13 +91,12 @@ class Application extends React.Component {
                 </Transition>
 
                 {/* <PageReveal></PageReveal> */}
-                {/* {this.state.overlayNavigationVisible && */}
-                {/* {isPreloaderCompleted && <OverlayMenu overlayNavigationVisible={overlayNavigationVisible} t={t} />} */}
-                {/*   } */}
+
+                {/* {isPreloaderCompleted && isNarrow && <OverlayMenu overlayNavigationVisible={overlayNavigationVisible} t={t} />} */}
 
                 {!isPreloaderCompleted && <Preloader onPreloaderCompleted={this._handlePreloaderCompleted} />}
 
-                <CustomCursor onHover={onHover} />
+                {!isNarrow && <CustomCursor onHover={onHover} />}
             </>
         );
     }
@@ -120,27 +114,30 @@ class Application extends React.Component {
     _handlePreloaderCompleted = () => {
         this.setState({ isPreloaderCompleted: true });
     };
-    _handleMouseenter = (e) => {
+
+    _handleNavigationHover = (e) => {
         if (e.type === 'mouseenter') {
             this.setState({ onHover: true });
         }
-    };
-    _handleMouseleave = (e) => {
         if (e.type === 'mouseleave') {
             this.setState({ onHover: false });
         }
-    };
-
-    _handleMouseDown = (e) => {
         if (e.type === 'mousedown') {
             this.setState({ onHover: false });
         }
     };
 
-    _handleSpritesheetMotionCompleted = (index) => {
-        console.log(index);
+    _handleSpritesheetMotionCompleted = () => {
         this.setState({ isSpritesheetMotionCompleted: true });
     };
-}
 
+    _handleMediaQuery = () => {
+        console.log(this.state.isNarrow);
+        if (isMediaQueryNarrow() || isMediaQueryRegular()) {
+            this.setState({ isNarrow: true });
+        } else {
+            this.setState({ isNarrow: false });
+        }
+    };
+}
 export default withTranslationApp(Application);

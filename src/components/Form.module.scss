@@ -1,0 +1,94 @@
+.container {
+    padding: 0 rem(24px);
+
+    font-family: $font-mono;
+    font-size: rem(22px);
+    font-weight: 400;
+    // padding: 0 rem(10px);
+    // border: 1px solid red;
+
+    text-transform: uppercase;
+}
+
+.title {
+    margin: 0 0 rem(102px) 0;
+
+    outline: none;
+
+    font-family: $font-plaak-bold;
+    font-size: rem(181px);
+    letter-spacing: rem(-2px);
+    line-height: rem(143px);
+
+    color: $color-dark-charcoal;
+}
+
+.form {
+    // width: fit-content;
+    margin: 0 auto;
+
+    // border: 1px solid magenta;
+}
+
+.group {
+    position: relative;
+    // border: 2px solid;
+
+    margin-bottom: rem(38px);
+
+    // border: 1px solid mediumaquamarine;
+}
+.label {
+    position: absolute;
+    top: rem(-30px);
+    left: rem(36px);
+
+    padding: rem(16px);
+    // border: 1px solid mediumaquamarine;
+
+    background-color: $color-chinese-white;
+
+    color: $color-dark-charcoal;
+}
+.input {
+    width: 100%;
+    height: rem(126px);
+
+    padding: rem(36px);
+
+    border: rem(1px) solid $color-dark-charcoal;
+    outline: none;
+    // background-color: #c8cbc9b9;
+
+    background-color: $color-chinese-silver;
+
+    font-family: $font-mono-light;
+    line-height: rem(126px);
+
+    color: $color-dark-charcoal;
+
+    &:focus {
+        border: 1px solid $color-pastel-red;
+    }
+}
+.textarea {
+    width: 100%;
+    height: rem(582px);
+    overflow: auto;
+
+    margin-bottom: rem(46px);
+    padding: rem(36px);
+
+    border: rem(1px) solid $color-dark-charcoal;
+    outline: none;
+
+    background-color: $color-chinese-silver;
+
+    resize: none;
+    // background-color: #c8cbc9b9;
+
+    color: $color-dark-charcoal;
+    &:focus {
+        border: 1px solid $color-pastel-red;
+    }
+}

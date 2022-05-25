@@ -4,7 +4,6 @@ import { resizeManager } from '@superherocheesecake/next-resize-manager';
 import Button from './Button';
 import Navigation from './Navigation';
 import Hamburger from './Hamburger';
-import { isMediaQueryNarrow, isMediaQueryRegular } from 'utils/DeviceUtil';
 import { isFunction } from 'lodash';
 
 export default class Header extends Component {
@@ -16,7 +15,7 @@ export default class Header extends Component {
         this._removeEventListeners();
     }
     render() {
-        const { t, overlayNavigationVisible, handleMouseenter, handleMouseleave, handleMouseDown } = this.props;
+        const { t, overlayNavigationVisible, handleNavigationHover } = this.props;
         const pathName = this.props.router.pathname;
         const homePage = pathName === '/';
 
@@ -44,7 +43,7 @@ export default class Header extends Component {
                 )}
 
                 <Hamburger overlayNavigationVisible={overlayNavigationVisible} buttonHamburgerClicked={this._handleHamburgerClick} />
-                {!homePage && <Navigation handleMouseenter={handleMouseenter} handleMouseleave={handleMouseleave} handleMouseDown={handleMouseDown} t={t} pathName={pathName} />}
+                {!homePage && <Navigation handleNavigationHover={handleNavigationHover} t={t} pathName={pathName} />}
             </header>
         );
     }
@@ -57,14 +56,11 @@ export default class Header extends Component {
         resizeManager.removeEventListener('resize:complete', this._resizeHandler);
     }
     _resize() {
-        // const header = document.querySelector(`.${styles.header}`);
-        // const list = document.querySelector(`.${styles.list}`);
-        // console.log(window.innerWidth)
-        console.log('red');
-        if (isMediaQueryNarrow() || isMediaQueryRegular()) {
-            this.setState({ isNarrow: true });
-        } else {
-            this.setState({ isNarrow: false });
+        // console.log('first');
+        const { handleMediaQuery } = this.props;
+        console.log(handleMediaQuery);
+        if (isFunction(handleMediaQuery)) {
+            handleMediaQuery();
         }
     }
 

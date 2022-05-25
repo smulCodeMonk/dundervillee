@@ -1,7 +1,8 @@
 import Head from 'next/head';
 import React, { Component, createRef } from 'react';
 import { withTranslation, getTranslation } from 'utils/translations/i18n';
-import styles from './index.module.scss';
+import styles from './contact.module.scss';
+import Form from 'components/Form';
 
 class Contact extends Component {
     render() {
@@ -13,7 +14,9 @@ class Contact extends Component {
                     <title>{t('contact:meta__title')}</title>
                 </Head>
 
-                <h1>{t('contact:heading')}</h1>
+                <span className={styles.heading}>{t('contact:heading')}</span>
+
+                <Form t={t} />
             </div>
         );
     }

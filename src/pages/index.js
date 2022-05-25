@@ -28,7 +28,7 @@ class Home extends Component {
         this._removeEventListener();
     }
     render() {
-        const { t, handleMouseenter, handleMouseleave, handleMouseDown, handleSpritesheetMotionCompleted, isSpritesheetMotionCompleted } = this.props;
+        const { t, handleNavigationHover, handleSpritesheetMotionCompleted, isSpritesheetMotionCompleted } = this.props;
         // console.log(handleMouseenter, handleMouseleave);
         return (
             <div ref={this.el} className={styles.page}>
@@ -38,7 +38,7 @@ class Home extends Component {
                 <Banner></Banner>
                 {/* <Marquee /> */}
                 <div className={styles.homeNavigation}>
-                    <Navigation t={t} handleMouseDown={handleMouseDown} handleMouseenter={handleMouseenter} handleMouseleave={handleMouseleave}></Navigation>
+                    <Navigation t={t} handleNavigationHover={handleNavigationHover}></Navigation>
                 </div>
                 {!isSpritesheetMotionCompleted && <Spritesheet handleSpritesheetMotionCompleted={handleSpritesheetMotionCompleted} />}
                 {/* <CanvasHouse /> */}

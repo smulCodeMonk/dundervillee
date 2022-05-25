@@ -38,7 +38,7 @@ export default class Preloader extends Component {
         this._removeEventListeners();
         this._killTimelines();
 
-        this._removeQueue();
+        // this._removeQueue();
     }
 
     render() {
@@ -138,8 +138,6 @@ export default class Preloader extends Component {
     }
 
     _removeQueue() {
-        console.log('_removeQueue');
-
         if (this._queue) {
             this._queue.destroy();
             this._queue === null;
@@ -153,8 +151,6 @@ export default class Preloader extends Component {
     _handleQueueStateChange = (state) => {
         const { onPreloaderCompleted } = this.props;
 
-        // console.log('state:', state);
-
         switch (state) {
             case QUEUE_STATE.LOADING: {
                 // Show preloader
@@ -166,9 +162,6 @@ export default class Preloader extends Component {
 
                 if (onPreloaderCompleted && isFunction(onPreloaderCompleted)) {
                     onPreloaderCompleted();
-                    // console.log(this._queue.get('image-1'));
-                    // const image = this._queue.get('image-1');
-                    // console.log(image);
                 }
 
                 break;

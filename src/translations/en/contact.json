@@ -1,3 +1,11 @@
 {
- "heading":"contact"
+    "meta__title": "Contact",
+    "heading": "we don't believe in pigeon post",
+    "title": "iv. say hello",
+    "title2": "thank you",
+    "text": "your message will reach us through the digital highway and we will respond as fast as we can,",
+    "text2": "which is usually within one business day",
+    "label": "name",
+    "label2": "email",
+    "label3": "what's on your mind"
 }

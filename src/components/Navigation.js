@@ -20,7 +20,7 @@ export default class Navigation extends Component {
     }
 
     render() {
-        const { t, pathName, handleMouseenter, handleMouseleave, handleMouseDown } = this.props;
+        const { t, pathName, handleNavigationHover } = this.props;
         const homePage = pathName === '/';
         return (
             <>
@@ -34,9 +34,9 @@ export default class Navigation extends Component {
                                 ref={(ref) => {
                                     this._routeItems[index] = ref;
                                 }}
-                                onMouseEnter={handleMouseenter}
-                                onMouseLeave={handleMouseleave}
-                                onMouseDown={handleMouseDown}
+                                onMouseEnter={handleNavigationHover}
+                                onMouseLeave={handleNavigationHover}
+                                onMouseDown={handleNavigationHover}
                             >
                                 <Button className={classNames(styles.button, pathName === item.button.href ? styles.active : '')} href={item.button.href}>
                                     <span className="buttonOrder">{toRoman(index + 1)}.</span>
@@ -62,19 +62,4 @@ export default class Navigation extends Component {
         // this._routeItems[0].removeEventListener('mouseenter', this._handleMouseenter);
         // this._routeItems[0].removeEventListener('mouseleave', this._handleMouseleave);
     }
-
-    // _handleMouseenter = (e) => {
-    //     console.log('mousenter');
-    //     const { handleOnHover } = this.props;
-    //     if (isFunction(handleOnHover)) {
-    //         handleOnHover(true);
-    //     }
-    // };
-    // _handleMouseleave = (e) => {
-    //     console.log('leave');
-    //     const { handleOnHover } = this.props;
-    //     if (isFunction(handleOnHover)) {
-    //         handleOnHover(false);
-    //     }
-    // };
 }

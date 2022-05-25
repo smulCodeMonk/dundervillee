@@ -194,7 +194,6 @@ export default class Spritesheet extends Component {
         let index = this.state.index;
         index += 1;
         this.setState({ index });
-
         //removes spritesheet when done
         this._CompletedMotion(index);
     }

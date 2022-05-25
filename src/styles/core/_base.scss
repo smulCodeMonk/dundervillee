@@ -22,6 +22,10 @@ body {
     overflow-x: hidden;
 
     background-color: $color-chinese-white;
+}
 
-    cursor: none;
+@include mq-wide {
+    body {
+        cursor: none;
+    }
 }
