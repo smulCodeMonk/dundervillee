@@ -11,6 +11,8 @@
 }
 
 .title {
+    width: 100%;
+
     margin: 0 0 rem(102px) 0;
 
     outline: none;
@@ -18,7 +20,8 @@
     font-family: $font-plaak-bold;
     font-size: rem(181px);
     letter-spacing: rem(-2px);
-    line-height: rem(143px);
+
+    text-align: center;
 
     color: $color-dark-charcoal;
 }
@@ -50,6 +53,12 @@
 
     color: $color-dark-charcoal;
 }
+
+.labelCheckbox {
+    top: rem(-12px);
+
+    // border: 1px solid red;
+}
 .input {
     width: 100%;
     height: rem(126px);
@@ -68,7 +77,8 @@
     color: $color-dark-charcoal;
 
     &:focus {
-        border: 1px solid $color-pastel-red;
+        // border: 1px solid $color-pastel-red;
+        border: 1px solid $color-dark-charcoal;
     }
 }
 .textarea {
@@ -76,7 +86,7 @@
     height: rem(582px);
     overflow: auto;
 
-    margin-bottom: rem(46px);
+    margin-bottom: rem(44px);
     padding: rem(36px);
 
     border: rem(1px) solid $color-dark-charcoal;
@@ -89,6 +99,92 @@
 
     color: $color-dark-charcoal;
     &:focus {
-        border: 1px solid $color-pastel-red;
+        // border: 1px solid $color-pastel-red;
+        border: 1px solid $color-dark-charcoal;
+    }
+}
+
+.select {
+    width: 100%;
+    // padding: rem(36px) rem(18px) rem(18px) rem(18px);
+    height: rem(126px);
+
+    padding: rem(36px);
+
+    border: rem(1px) solid $color-dark-charcoal;
+    outline: none;
+
+    background-color: $color-chinese-silver;
+
+    font-family: $font-mono-light;
+    line-height: rem(126px);
+
+    text-transform: uppercase;
+    &:focus {
+        border: 1px solid $color-dark-charcoal;
+    }
+}
+.checkbox {
+    width: rem(36px);
+    height: rem(36px);
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.button {
+    width: rem(300px);
+    height: rem(100px);
+
+    margin-bottom: rem(119px);
+    padding: rem(12px);
+
+    outline: none;
+
+    background-color: $color-dark-charcoal;
+
+    transition: all 300ms ease-in-out;
+
+    text-transform: uppercase;
+
+    color: $color-chinese-white;
+
+    &:hover,
+    :focus {
+        background-color: $color-chinese-silver;
+
+        color: $color-dark-charcoal;
+    }
+}
+
+@include mq-wide {
+    .container {
+        margin: 0 auto;
+
+        border: 1px solid blue;
+    }
+    .title {
+        width: 100%;
+
+        margin: 0 0 rem(86px) 0;
+
+        font-size: rem(242px);
+    }
+    .form {
+        width: rem(580px);
+
+        border: 1px solid red;
+    }
+    .label {
+        font-size: rem(11px);
+    }
+
+    .input,
+    .select {
+        height: rem(65px);
+    }
+    .textarea {
+        height: rem(200px);
     }
 }

@@ -25,7 +25,7 @@ class Contact extends Component {
 export default withTranslation(Contact);
 
 export const getStaticProps = ({ locale = process.env.LOCALE, locales = process.env.LOCALES }) => {
-    const shared = ['header', 'footer', 'cookie-notification'];
+    const shared = ['header', 'footer', 'cookie-notification', 'contact-form'];
     const translation = getTranslation({
         locale,
         locales,
