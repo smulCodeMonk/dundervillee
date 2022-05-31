@@ -10,7 +10,7 @@
     text-transform: uppercase;
 }
 
-.title {
+.heading {
     width: 100%;
 
     margin: 0 0 rem(102px) 0;
@@ -54,11 +54,6 @@
     color: $color-dark-charcoal;
 }
 
-.labelCheckbox {
-    top: rem(-12px);
-
-    // border: 1px solid red;
-}
 .input {
     width: 100%;
     height: rem(126px);
@@ -67,9 +62,10 @@
 
     border: rem(1px) solid $color-dark-charcoal;
     outline: none;
-    // background-color: #c8cbc9b9;
 
-    background-color: $color-chinese-silver;
+    background-color: transparent;
+    //TODO bgcolor darken or change to different color
+    // background-color: $color-chinese-silver;
 
     font-family: $font-mono-light;
     line-height: rem(126px);
@@ -79,6 +75,8 @@
     &:focus {
         // border: 1px solid $color-pastel-red;
         border: 1px solid $color-dark-charcoal;
+
+        background-color: #0001;
     }
 }
 .textarea {
@@ -91,43 +89,42 @@
 
     border: rem(1px) solid $color-dark-charcoal;
     outline: none;
+    // background-color: $color-chinese-silver;
 
-    background-color: $color-chinese-silver;
+    background-color: transparent;
 
     resize: none;
+
+    font-family: $font-mono-light;
     // background-color: #c8cbc9b9;
 
     color: $color-dark-charcoal;
     &:focus {
         // border: 1px solid $color-pastel-red;
         border: 1px solid $color-dark-charcoal;
+
+        background-color: #0001;
     }
 }
 
-.select {
-    width: 100%;
-    // padding: rem(36px) rem(18px) rem(18px) rem(18px);
-    height: rem(126px);
-
-    padding: rem(36px);
-
-    border: rem(1px) solid $color-dark-charcoal;
-    outline: none;
-
-    background-color: $color-chinese-silver;
-
-    font-family: $font-mono-light;
-    line-height: rem(126px);
-
-    text-transform: uppercase;
-    &:focus {
-        border: 1px solid $color-dark-charcoal;
-    }
-}
 .checkbox {
-    width: rem(36px);
-    height: rem(36px);
+    width: rem(32px);
+    height: rem(32px);
 
+    vertical-align: bottom;
+
+    accent-color: $color-dark-charcoal;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+.labelCheckbox {
+    top: rem(-12px);
+
+    background-color: transparent;
+
+    // border: 1px solid red;
     &:hover {
         cursor: pointer;
     }
@@ -152,9 +149,47 @@
 
     &:hover,
     :focus {
-        background-color: $color-chinese-silver;
+        border: 1px solid $color-dark-charcoal;
+
+        background-color: #0001;
 
         color: $color-dark-charcoal;
+    }
+}
+.radio {
+    // position: relative;
+    width: 100%;
+    height: rem(126px);
+
+    padding: rem(36px) 0 0 rem(54px);
+    // border: 1px solid red;
+
+    border: rem(1px) solid $color-dark-charcoal;
+
+    // line-height: rem(126px);
+}
+.radioOptions {
+    position: relative;
+
+    width: rem(32px);
+    height: rem(32px);
+
+    margin: 0 rem(20px);
+
+    vertical-align: bottom;
+
+    accent-color: $color-dark-charcoal;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+.labelRadio {
+    // border: 1px solid blue;
+
+    // line-height: rem(50px);
+    &:hover {
+        cursor: pointer;
     }
 }
 
@@ -162,9 +197,9 @@
     .container {
         margin: 0 auto;
 
-        border: 1px solid blue;
+        // border: 1px solid blue;
     }
-    .title {
+    .heading {
         width: 100%;
 
         margin: 0 0 rem(86px) 0;
@@ -172,19 +207,53 @@
         font-size: rem(242px);
     }
     .form {
-        width: rem(580px);
+        width: rem(720px);
 
-        border: 1px solid red;
+        // border: 1px solid red;
     }
-    .label {
+    .label,
+    .labelRadio {
         font-size: rem(11px);
     }
 
-    .input,
-    .select {
+    .input {
         height: rem(65px);
+
+        line-height: rem(65px);
     }
     .textarea {
         height: rem(200px);
+    }
+
+    .radio {
+        position: relative;
+
+        width: 100%;
+        // padding: rem(36px) rem(18px) rem(18px) rem(18px);
+        height: rem(65px);
+
+        padding: rem(24px) 0 0 rem(36px);
+    }
+
+    .radioOptions,
+    .checkbox {
+        width: rem(16px);
+        height: rem(16px);
+    }
+    .radioOptions,
+    .labelRadio,
+    .checkbox,
+    .labelCheckbox {
+        vertical-align: top;
+    }
+
+    .labelCheckbox {
+        top: rem(-16px);
+        left: rem(20px);
+
+        // border: 1px solid red;
+        &:hover {
+            cursor: pointer;
+        }
     }
 }

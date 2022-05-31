@@ -11,13 +11,13 @@ export default class Navigation extends Component {
 
     _routeItems = [];
 
-    componentDidMount() {
-        this._setupEventListeners();
-    }
+    // componentDidMount() {
+    //     this._setupEventListeners();
+    // }
 
-    componentWillUnmount() {
-        this._removeEventListeners();
-    }
+    // componentWillUnmount() {
+    //     this._removeEventListeners();
+    // }
 
     render() {
         const { t, pathName, handleNavigationHover } = this.props;
@@ -51,15 +51,15 @@ export default class Navigation extends Component {
         );
     }
 
-    _setupEventListeners() {
-        // listening to mouse events
-        // this._routeItems[0].addEventListener('mouseenter', this._handleMouseenter);
-        // this._routeItems[0].addEventListener('mouseleave', this._handleMouseleave);
-    }
+    // _setupEventListeners() {
+    //     // listening to mouse events
+    //     // this._routeItems[0].addEventListener('mouseenter', this._handleMouseenter);
+    //     // this._routeItems[0].addEventListener('mouseleave', this._handleMouseleave);
+    // }
 
-    _removeEventListeners() {
-        // get rid of the events
-        // this._routeItems[0].removeEventListener('mouseenter', this._handleMouseenter);
-        // this._routeItems[0].removeEventListener('mouseleave', this._handleMouseleave);
-    }
+    // _removeEventListeners() {
+    //     // get rid of the events
+    //     // this._routeItems[0].removeEventListener('mouseenter', this._handleMouseenter);
+    //     // this._routeItems[0].removeEventListener('mouseleave', this._handleMouseleave);
+    // }
 }

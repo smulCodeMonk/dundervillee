@@ -78,18 +78,19 @@ export default class CustomCursor extends Component {
         gsap.ticker.remove(this._handleTick);
         window.removeEventListener('mousemove', this._handleMousemove);
         // window.removeEventListener('mouseup', this._handleMouseup);
+
         resizeManager.removeEventListener('resize', this._resizeHandler);
         resizeManager.removeEventListener('resize:complete', this._resizeHandler);
     }
 
     _resize() {
         this._setSize();
-        // this._draw();
     }
 
     _setSize() {
         this._width = window.innerWidth;
         this._height = window.innerHeight;
+
         this._canvas.width = this._width;
         this._canvas.height = this._height;
     }
@@ -279,7 +280,7 @@ export default class CustomCursor extends Component {
     };
 
     _resizeHandler = () => {
-        this._resize();
+        // this._resize();
     };
 
     _handleTick = () => {

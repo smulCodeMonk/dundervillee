@@ -56,9 +56,8 @@ export default class Header extends Component {
         resizeManager.removeEventListener('resize:complete', this._resizeHandler);
     }
     _resize() {
-        // console.log('first');
         const { handleMediaQuery } = this.props;
-        console.log(handleMediaQuery);
+        // console.log(handleMediaQuery);
         if (isFunction(handleMediaQuery)) {
             handleMediaQuery();
         }

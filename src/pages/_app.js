@@ -92,7 +92,7 @@ class Application extends React.Component {
 
                 {/* <PageReveal></PageReveal> */}
 
-                {/* {isPreloaderCompleted && isNarrow && <OverlayMenu overlayNavigationVisible={overlayNavigationVisible} t={t} />} */}
+                {isPreloaderCompleted && isNarrow && <OverlayMenu overlayNavigationVisible={overlayNavigationVisible} t={t} />}
 
                 {!isPreloaderCompleted && <Preloader onPreloaderCompleted={this._handlePreloaderCompleted} />}
 

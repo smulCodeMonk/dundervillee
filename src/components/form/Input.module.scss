@@ -1,0 +1,50 @@
+.label {
+    position: absolute;
+    top: rem(-30px);
+    left: rem(36px);
+
+    padding: rem(16px);
+    // border: 1px solid mediumaquamarine;
+
+    background-color: $color-chinese-white;
+
+    color: $color-dark-charcoal;
+}
+
+.input {
+    width: 100%;
+    height: rem(126px);
+
+    padding: rem(36px);
+
+    border: rem(1px) solid $color-dark-charcoal;
+    outline: none;
+
+    background-color: transparent;
+    //TODO bgcolor darken or change to different color
+    // background-color: $color-chinese-silver;
+
+    font-family: $font-mono-light;
+    line-height: rem(126px);
+
+    color: $color-dark-charcoal;
+
+    &:focus {
+        // border: 1px solid $color-pastel-red;
+        border: 1px solid $color-dark-charcoal;
+
+        background-color: #0001;
+    }
+}
+
+@include mq-wide {
+    .label {
+        font-size: rem(11px);
+    }
+
+    .input {
+        height: rem(65px);
+
+        line-height: rem(65px);
+    }
+}
